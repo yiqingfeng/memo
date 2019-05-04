@@ -1,0 +1,73 @@
+<template lang="cml">
+	<view class="m-calendar">
+    <container>
+			<head>
+				<row class="calendar-row">
+					<col class="calendar-col" c-for="{{weekTitle}}">
+						<text>{{item}}</text>
+					</col>
+				</row>
+			</head>
+		</container>
+	</view>
+</template>
+
+<script>
+
+class Calendar {
+
+  data = {
+		weekTitle: [ '日', '一', '二', '三', '四', '五', '六' ],
+  }
+
+  computed = {
+  }
+
+  watch  = {
+  }
+
+  methods = {
+  }
+
+  beforeCreate() {
+  }
+
+  created() {
+  }
+
+  beforeMount() {
+  }
+
+  mounted() {
+  }
+
+  beforeDestroy() {
+  }
+
+  destroyed() {
+  }
+}
+
+export default new Calendar();
+</script>
+<style type="less" scoped>
+	.m-calendar {
+		width: 750cpx;
+		.calendar-row {
+			width: 750cpx;
+		}
+		.calendar-col {
+			width: 106cpx;
+			align-items: center;
+		}
+	}
+</style>
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+			"c-actionsheet": "cml-ui/components/c-actionsheet/c-actionsheet"
+		}
+  }
+}
+</script>

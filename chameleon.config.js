@@ -1,45 +1,40 @@
-
 // 设置静态资源的线上路径
 const publicPath = '//www.static.chameleon.com/cml';
 // 设置api请求前缀
 const apiPrefix = 'https://api.chameleon.com';
 
 cml.config.merge({
-  templateLang: "cml",
-  templateType: "html",
-  platforms: ["web","weex","wx","alipay","baidu"],
-  buildInfo: {
-    wxAppId: '123456'
+	projectName: 'Memo',
+	templateLang: "cml",
+	templateType: "html",
+	enableLinter: true, // 开启语法检查，默认为 true
+	platforms: ["web", "wx"],
+	// 一致性基础样式
+	baseStyle: {
+    wx: true,
+    alipay: false,
+    baidu: false,
+    web: true,
+    weex: false
   },
-  wx: {
-    dev: {
-    },
-    build: {
-      apiPrefix
-    }
-  },
-  web: {
-    dev: {
-      analysis: false,
-      console: false
-    },
-    build: {
-      analysis: false,
-      publicPath: `${publicPath}/web/`,
-      apiPrefix
-    }
-  },
-  weex: {
-    dev: {
-    },
-    build: {
-      publicPath: `${publicPath}/weex/`,
-      apiPrefix
-    },
-    custom: {
-      publicPath: `${publicPath}/wx/`,
-      apiPrefix
-    }
-  }
-})
-
+	buildInfo: {
+		wxAppId: '123456'
+	},
+	wx: {
+		dev: {},
+		build: {
+			apiPrefix
+		}
+	},
+	web: {
+		dev: {
+			analysis: false,
+			console: false
+		},
+		build: {
+			analysis: false,
+			publicPath: `${publicPath}/web/`,
+			apiPrefix
+		}
+	},
+});

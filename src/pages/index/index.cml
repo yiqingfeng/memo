@@ -1,8 +1,8 @@
 <template>
-  <page title="chameleon">
+  <page title="{{title}}">
       <scroller height="{{-1}}">
         <view class="scroller-wrap">
-          <demo-com title="{{title}}" image-src="{{chameleonSrc}}"></demo-com>
+          <calendar></calendar>	
         </view>
       </scroller>
   </page>
@@ -12,7 +12,7 @@
 
 class Index  {
   data = {
-    title: "chameleon",
+    title: "备忘录首页",
     chameleonSrc: require('../../assets/images/chameleon.png')
   }
 }
@@ -33,7 +33,8 @@ export default new Index();
 {
   "base": {
     "usingComponents": {
-      "demo-com": "/components/demo-com/demo-com"
+      "demo-com": "/components/demo-com/demo-com",
+			"calendar": "/components/calendar/calendar"
     }
   },
   "wx": {
