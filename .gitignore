@@ -1,2 +1,5 @@
 ## depend
 /node_modules
+
+## dist
+/dist

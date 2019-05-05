@@ -1,38 +1,125 @@
 <template lang="cml">
 	<view class="m-calendar">
-    <container>
-			<head>
-				<row class="calendar-row">
+    <container direction="column">
+			<head class="calendar-head" style="height: 56cpx;">
+				<row>
 					<col class="calendar-col" c-for="{{weekTitle}}">
 						<text>{{item}}</text>
 					</col>
 				</row>
 			</head>
+			<main>
+				<row c-for="{{dateList}}" c-for-item="weeks">
+					<col c-for="{{weeks}}" class="calendar-col calendar-date_item">
+						<text>{{item.date}}</text>
+					</col>
+				</row>
+			</main>
 		</container>
 	</view>
 </template>
 
 <script>
-
 class Calendar {
-
   data = {
 		weekTitle: [ '日', '一', '二', '三', '四', '五', '六' ],
+		year: 0,
+		month: 0,
+		day: 0,
   }
 
   computed = {
+  	dateList() {
+  		const {
+        year,
+        month,
+    	} = this;
+    	const days = this.getDaysByYM(year, month);
+      const prevDays = this.getDaysByYM(year, month - 1);
+      const {
+        week,
+      } = this.getDateInfo(`${year}/${month}/1`);
+      let dateList = this.fillDates(1, days);
+      let prevList;
+      let nextList;
+
+      // 上月日期补充
+      if (week === 0) { // 周日
+        prevList = [];
+      } else {
+        prevList = this.fillDates((prevDays + 1) - week, prevDays, 1);
+      }
+      dateList = prevList.concat(dateList);
+      // 下月日期补充
+      const nextLen = dateList.length % 7;
+      if (nextLen) {
+        nextList = this.fillDates(1, 7 - nextLen, 3);
+      } else {
+        nextList = [];
+      }
+      dateList = dateList.concat(nextList);
+      return this.formatDateList(dateList);
+  	}
   }
 
   watch  = {
   }
 
   methods = {
+  	// 获取某年某月的天数
+    getDaysByYM(year, month) {
+      const date = new Date(year, month - 1, 0);
+      return date.getDate();
+    },
+
+    // 获取日期详细信息
+    getDateInfo(time) {
+      const date = new Date(time);
+      return {
+        year: date.getFullYear(),
+        month: date.getMonth() + 1,
+        day: date.getDate(),
+        week: date.getDay(),
+        timestamp: date.getTime(),
+      };
+    },
+
+    /**
+     * 填充日期
+     * @param type 1 上月 2 当月 3 下月
+     */
+    fillDates(start, end, type) {
+      const dates = [];
+      for(let i = start; i <= end; i++) { // eslint-disable-line
+        dates.push({
+          date: i,
+          type: type || 2,
+        });
+      }
+      return dates;
+    },
+
+    // 日期数据拆分
+    formatDateList(list) {
+    	const result = [];
+    	for (let i = 0, len = list.length / 7; i < len; i++) {
+    		let start = i * 7;
+    		result[i] = list.slice(start, start + 7);
+    	}
+    	console.log(result);
+    	return result;
+    },
   }
 
   beforeCreate() {
   }
 
   created() {
+  	// 初始化当前时间
+  	const now = new Date();
+  	this.year = now.getFullYear();
+  	this.month = now.getMonth();
+  	this.day = now.getDate();
   }
 
   beforeMount() {
@@ -50,23 +137,31 @@ class Calendar {
 
 export default new Calendar();
 </script>
+
 <style type="less" scoped>
 	.m-calendar {
 		width: 750cpx;
-		.calendar-row {
-			width: 750cpx;
-		}
-		.calendar-col {
-			width: 106cpx;
-			align-items: center;
-		}
+	}
+	.calendar-head {
+		color: #fff;
+		background-color: #000;
+		// line-height: 18cpx;
+		// font-size: 14cpx;
+	}
+	.calendar-col {
+		flex: 1;
+		width: 106cpx;
+		align-items: center;
+	}
+	.calendar-date_item {
+		height: 60cpx;
 	}
 </style>
+
 <script cml-type="json">
 {
   "base": {
     "usingComponents": {
-			"c-actionsheet": "cml-ui/components/c-actionsheet/c-actionsheet"
 		}
   }
 }

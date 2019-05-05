@@ -2,13 +2,14 @@
   <page title="{{title}}">
       <scroller height="{{-1}}">
         <view class="scroller-wrap">
-          <calendar></calendar>	
+          <calendar></calendar>
         </view>
       </scroller>
   </page>
 </template>
 
 <script>
+
 
 class Index  {
   data = {
