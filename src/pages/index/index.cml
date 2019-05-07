@@ -22,13 +22,11 @@ export default new Index();
 
 </script>
 <style>
-
 .scroller-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 </style>
 <script cml-type="json">
 {

@@ -9,7 +9,7 @@ cml.config.merge({
 	templateType: "html",
 	enableLinter: true, // 开启语法检查，默认为 true
 	globalCheckWhiteList: [/node_modules/], // 文件路径能匹配 node_modules 的文件不进行校验
-	platforms: ["web", "wx"],
+	platforms: ["web", "wx", "weex"],
 	// 一致性基础样式
 	// baseStyle: {
  	//    wx: true,
