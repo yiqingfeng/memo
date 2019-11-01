@@ -1,0 +1,26 @@
+{
+  "name": "memo-domain",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "戴强 <daiq@fxiaoke.com>",
+  "homepage": "https://github.com/yiqingfeng/memo#readme",
+  "license": "MIT",
+  "main": "lib/memo.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yiqingfeng/memo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/yiqingfeng/memo/issues"
+  }
+}
