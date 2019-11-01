@@ -6,10 +6,11 @@ root = true
 # 文件编码
 charset = utf-8
 # 使用空格缩进
-indent_style = tab
-# 空格缩进值为2
-indent_size = 2
-# 换行符
+indent_style = space
+# 空格缩进值为4
+indent_size = 4
+# 换行符 linux
 end_of_line = lf
 # 文件尾部以空行结束
 insert_final_newline = true
+trim_trailing_whitespace = true

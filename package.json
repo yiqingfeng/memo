@@ -1,17 +1,7 @@
 {
-  "name": "memo",
-  "version": "1.0.0",
-  "description": "A chameleon project",
-  "author": "",
+  "name": "root",
   "private": true,
-  "scripts": {},
-  "license": "MIT",
-  "dependencies": {
-    "chameleon-api": "0.4.3",
-    "chameleon-bridge": "0.1.2",
-    "chameleon-runtime": "0.1.4",
-    "chameleon-store": "0.0.3",
-    "chameleon-ui-builtin": "^0.2.0",
-    "cml-ui": "0.1.7"
+  "devDependencies": {
+    "lerna": "^3.16.4"
   }
 }
