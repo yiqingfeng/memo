@@ -1,7 +1,17 @@
 {
   "name": "root",
+  "version": "1.0.0",
+  "description": "备忘录memo",
   "private": true,
+  "author": "nimo",
   "devDependencies": {
     "lerna": "^3.16.4"
+  },
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js --ext .js,.vue packages",
+    "clean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "dev:h5": "cd packages/memo-view-h5 && npm run serve",
+    "build": "lerna run --scope memo-common --scope memo-domain --scope memo-store --scope memo-translator build"
   }
 }

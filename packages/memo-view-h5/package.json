@@ -1,26 +1,50 @@
 {
   "name": "memo-view-h5",
-  "version": "1.0.0",
-  "description": "memo 的 h5 展示",
-  "author": "戴强 <daiq@fxiaoke.com>",
-  "homepage": "https://github.com/yiqingfeng/memo#readme",
-  "license": "MIT",
-  "main": "lib/memo-view-h5.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yiqingfeng/memo.git"
-  },
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "bugs": {
-    "url": "https://github.com/yiqingfeng/memo/issues"
-  }
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-service": "^4.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
